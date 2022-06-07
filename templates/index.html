@@ -22,12 +22,18 @@
 
         if(name =="Form to upload files"){
          open_button.value = "-1"; 
-         name_element.innerHTML =  "<br><h3>NAME: "+(name)+"</h3>";
-        }
+         name_element = document.createElement('a');
+         name_element.href = link;
+         name_element.name = 'open';
+         name_element.innerHTML =  "<br><h3>"+(name)+"</h3>";
         var break_element = document.createElement('br');
         document.getElementById('container').appendChild(name_element);
-        document.getElementById('container').appendChild(open_button); 
-      }
+        }
+        else{
+        var break_element = document.createElement('br');
+        document.getElementById('container').appendChild(name_element);
+          document.getElementById('container').appendChild(open_button); 
+        }
     </script>
   </body>
 </html>
