@@ -1,0 +1,33 @@
+<html>
+  <body>
+    <form action="/view" method="POST"> 
+    <div id="container" width="100" height="100">
+    </div>
+    </form>
+    <script>
+      const jsonfile = JSON.parse({{df|tojson}});
+      // console.log(jsonfile);
+      for(var i in jsonfile){
+        var name = jsonfile[i]['Name of file'];
+        var link = jsonfile[i]['Upload file'];
+        var sem = jsonfile[i]['sem'];
+        
+        var name_element = document.createElement('p');
+        name_element.innerHTML = "<br><h3>NAME: "+(name)+"</h3> <h4>SEM: "+sem+"</h4>";
+        var open_button = document.createElement('button');
+        open_button.type = 'submit';
+        open_button.innerHTML = 'open';
+        open_button.name = 'link';
+        open_button.value = link;
+
+        if(name =="Form to upload files"){
+         open_button.value = "-1"; 
+         name_element.innerHTML =  "<br><h3>NAME: "+(name)+"</h3>";
+        }
+        var break_element = document.createElement('br');
+        document.getElementById('container').appendChild(name_element);
+        document.getElementById('container').appendChild(open_button); 
+      }
+    </script>
+  </body>
+</html>
