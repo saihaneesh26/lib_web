@@ -1,6 +1,8 @@
 import json
 from flask import Flask, render_template, request
 import pandas as pd
+import os
+port = int(os.environ.get('PORT', 5000))
 
 app = Flask(__name__,template_folder="templates")
 @app.route('/',methods=['POST','GET'])
@@ -32,6 +34,6 @@ def viewPage():
         return render_template("view.html")
 
 if __name__=='__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True)
 
 
